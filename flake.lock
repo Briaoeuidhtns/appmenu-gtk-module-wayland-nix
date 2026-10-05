@@ -1,0 +1,45 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1791048980,
+        "narHash": "sha256-KgItSKML8Xvte0B7/uGnBDsYzSnnKHcOaiUbgWBXLXw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "a7868a727837f3c09cee2ce0ca671c76b1589fed",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "upstream": "upstream"
+      }
+    },
+    "upstream": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1790606970,
+        "narHash": "sha256-ONLQXyOZgaUofYvNjk+Gip1JwucVYslktr/CTgqEjg8=",
+        "owner": "guiodic",
+        "repo": "appmenu-gtk-module-wayland",
+        "rev": "8963fc2c9439c2ea0544122c41c30c6ced538911",
+        "type": "github"
+      },
+      "original": {
+        "owner": "guiodic",
+        "ref": "master",
+        "repo": "appmenu-gtk-module-wayland",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

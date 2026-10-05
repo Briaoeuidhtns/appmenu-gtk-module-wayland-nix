@@ -1,0 +1,30 @@
+diff --git a/src/datastructs.c b/src/datastructs.c
+index 020d9a2..a9dc231 100644
+--- a/src/datastructs.c
++++ b/src/datastructs.c
+@@ -32,10 +32,6 @@
+ #include <libdbusmenu-gtk/parser.h>
+ #include "unity-gtk-menu-item-private.h"
+ 
+-/* libdbusmenu-gtk internal but exported functions */
+-DbusmenuMenuitem *dbusmenu_gtk_parse_get_item(GtkWidget *widget);
+-DbusmenuMenuitem *dbusmenu_gtk_parse_get_cached_item(GtkWidget *widget);
+-
+ G_GNUC_INTERNAL G_DEFINE_QUARK(appmenu_gtk_wayland_window_data, appmenu_gtk_wayland_window_data);
+ G_DEFINE_BOXED_TYPE(WindowData, appmenu_gtk_wayland_window_data, (GBoxedCopyFunc)window_data_copy,
+                     (GBoxedFreeFunc)window_data_free);
+@@ -267,13 +263,7 @@ static void fix_dbusmenu(GtkWidget *widget, gpointer user_data)
+ 
+ 	if (GTK_IS_MENU_ITEM(widget))
+ 	{
+-		DbusmenuMenuitem *item = g_object_get_data(G_OBJECT(widget), "dbusmenu-gtk-item");
+-
+-		/* Fallback to internal lookup functions if data is not found directly */
+-		if (item == NULL)
+-			item = dbusmenu_gtk_parse_get_cached_item(widget);
+-		if (item == NULL)
+-			item = dbusmenu_gtk_parse_get_item(widget);
++		DbusmenuMenuitem *item = dbusmenu_gtk_parse_get_cached_item(widget);
+ 
+ 		if (item != NULL)
+ 		{
